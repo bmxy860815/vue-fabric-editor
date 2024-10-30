@@ -11,7 +11,8 @@
       <!-- 头部区域 -->
       <Header v-if="state.show">
         <div class="left">
-          <logo></logo>
+          <!--          <logo></logo>-->
+          <div style="width: 110px; height: 54px; background-color: #f2f"></div>
           <Divider type="vertical" />
 
           <!-- 导入 -->
@@ -19,8 +20,8 @@
           <Divider type="vertical" />
           <import-file></import-file>
           <Divider type="vertical" />
-          <Button type="text" to="/template" target="_blank">全部模板</Button>
-          <Divider type="vertical" />
+          <!--          <Button type="text" to="/template" target="_blank">全部模板</Button>-->
+          <!--          <Divider type="vertical" />-->
 
           <myTemplName></myTemplName>
           <!-- 标尺开关 -->
@@ -37,16 +38,16 @@
         </div>
 
         <div class="right">
-          <a href="https://pro.kuaitu.cc/" target="_blank" alt="商业版">
-            <img width="15" :src="proIcon" alt="vue-fbric-editor" />
-          </a>
+          <!--          <a href="https://pro.kuaitu.cc/" target="_blank" alt="商业版">-->
+          <!--            <img width="15" :src="proIcon" alt="vue-fbric-editor" />-->
+          <!--          </a>-->
           <!-- 管理员模式 -->
-          <admin />
+          <!--          <admin />-->
           <!-- 预览 -->
           <previewCurrent />
           <waterMark />
           <save></save>
-          <login></login>
+          <!--          <login></login>-->
           <lang></lang>
         </div>
       </Header>
@@ -335,12 +336,12 @@ const leftBar = reactive([
     name: computed(() => t('layers')),
     icon: 'md-reorder',
   },
-  {
-    // 用户素材
-    key: 'myMaterial',
-    name: computed(() => t('mine')),
-    icon: 'ios-contact-outline',
-  },
+  // {
+  //   // 用户素材
+  //   key: 'myMaterial',
+  //   name: computed(() => t('mine')),
+  //   icon: 'ios-contact-outline',
+  // },
 ]);
 
 onMounted(() => {
