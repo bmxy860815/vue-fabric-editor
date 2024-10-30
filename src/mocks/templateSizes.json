@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "attributes": {
+            "name": "小红书配图",
+            "width": "1242",
+            "height": "1660",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:32:27.689Z",
+            "updatedAt": "2024-05-11T10:32:41.347Z",
+            "publishedAt": "2024-05-11T10:32:41.341Z"
+        }
+    },
+    {
+        "id": 2,
+        "attributes": {
+            "name": "公众号首图",
+            "width": "900",
+            "height": "383",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:33:06.015Z",
+            "updatedAt": "2024-05-11T10:33:06.899Z",
+            "publishedAt": "2024-05-11T10:33:06.896Z"
+        }
+    },
+    {
+        "id": 3,
+        "attributes": {
+            "name": "公众号次图",
+            "width": "500",
+            "height": "500",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:33:20.235Z",
+            "updatedAt": "2024-05-11T10:33:24.035Z",
+            "publishedAt": "2024-05-11T10:33:24.031Z"
+        }
+    },
+    {
+        "id": 4,
+        "attributes": {
+            "name": "竖版直播背景",
+            "width": "1242",
+            "height": "1660",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:33:39.624Z",
+            "updatedAt": "2024-05-11T10:34:17.845Z",
+            "publishedAt": "2024-05-11T10:34:17.841Z"
+        }
+    },
+    {
+        "id": 5,
+        "attributes": {
+            "name": "竖版视频封面",
+            "width": "1242",
+            "height": "2208",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:33:57.291Z",
+            "updatedAt": "2024-05-11T10:34:20.017Z",
+            "publishedAt": "2024-05-11T10:34:20.009Z"
+        }
+    },
+    {
+        "id": 6,
+        "attributes": {
+            "name": "横版视频封面",
+            "width": "1920",
+            "height": "1080",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:34:14.161Z",
+            "updatedAt": "2024-05-11T10:34:15.169Z",
+            "publishedAt": "2024-05-11T10:34:15.164Z"
+        }
+    },
+    {
+        "id": 7,
+        "attributes": {
+            "name": "商品主图",
+            "width": "800",
+            "height": "800",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:34:51.223Z",
+            "updatedAt": "2024-05-11T10:34:51.809Z",
+            "publishedAt": "2024-05-11T10:34:51.805Z"
+        }
+    },
+    {
+        "id": 8,
+        "attributes": {
+            "name": "电商详情页面",
+            "width": "750",
+            "height": "1000",
+            "unit": "px",
+            "createdAt": "2024-05-11T10:35:05.668Z",
+            "updatedAt": "2024-06-04T07:10:16.550Z",
+            "publishedAt": "2024-05-11T10:35:06.365Z"
+        }
+    },
+    {
+        "id": 11,
+        "attributes": {
+            "name": "A4",
+            "width": "595",
+            "height": "842",
+            "unit": "px",
+            "createdAt": "2024-09-16T01:29:18.764Z",
+            "updatedAt": "2024-09-16T01:29:19.692Z",
+            "publishedAt": "2024-09-16T01:29:19.686Z"
+        }
+    },
+    {
+        "id": 12,
+        "attributes": {
+            "name": "A4横版",
+            "width": "842",
+            "height": "595",
+            "unit": "px",
+            "createdAt": "2024-10-02T09:26:26.012Z",
+            "updatedAt": "2024-10-02T09:26:26.625Z",
+            "publishedAt": "2024-10-02T09:26:26.622Z"
+        }
+    }
+]

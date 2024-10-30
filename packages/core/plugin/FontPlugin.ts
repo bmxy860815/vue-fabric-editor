@@ -12,6 +12,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import axios from 'axios';
 import { downFile } from '../utils/utils';
 import type { IEditor, IPluginTempl } from '@kuaitu/core';
+import fontsData from '@/mocks/fonts.json';
 
 type IPlugin = Pick<FontPlugin, 'getFontList' | 'loadFont' | 'getFontJson' | 'downFontByJSON'>;
 
@@ -53,22 +54,34 @@ class FontPlugin implements IPluginTempl {
       return Promise.resolve(this.cacheList);
     }
     if (this.tempPromise) return this.tempPromise;
-    this.tempPromise = axios
-      .get(`${this.repoSrc}/api/fonts?populate=*&pagination[pageSize]=100`)
-      .then((res) => {
-        const list = res.data.data.map((item: any) => {
-          return {
-            name: item.attributes.name,
-            type: item.attributes.type,
-            file: this.repoSrc + item.attributes.file.data.attributes.url,
-            img: this.repoSrc + item.attributes.img.data.attributes.url,
-          };
-        });
-        this.cacheList = list;
-        this.createFontCSS(list);
-        return list;
-      });
-    return this.tempPromise;
+    const list = fontsData.map((item: any) => {
+      return {
+        name: item.attributes.name,
+        type: item.attributes.type,
+        file: this.repoSrc + item.attributes.file.data.attributes.url,
+        img: this.repoSrc + item.attributes.img.data.attributes.url,
+      };
+    });
+    this.cacheList = list;
+    this.createFontCSS(list);
+    return Promise.resolve(list);
+
+    // this.tempPromise = axios
+    //   .get(`${this.repoSrc}/api/fonts?populate=*&pagination[pageSize]=100`)
+    //   .then((res) => {
+    //     const list = fontsData.map((item: any) => {
+    //       return {
+    //         name: item.attributes.name,
+    //         type: item.attributes.type,
+    //         file: this.repoSrc + item.attributes.file.data.attributes.url,
+    //         img: this.repoSrc + item.attributes.img.data.attributes.url,
+    //       };
+    //     });
+    //     this.cacheList = list;
+    //     this.createFontCSS(list);
+    //     return list;
+    //   });
+    // return this.tempPromise;
   }
 
   downFontByJSON(str: string) {

@@ -10,7 +10,7 @@ import { fabric } from 'fabric';
 import axios from 'axios';
 import qs from 'qs';
 import type { IEditor, IPluginTempl } from '@kuaitu/core';
-
+import TempTypes from '@/mocks/templateTypes.json';
 type IPlugin = Pick<
   MaterialPlugin,
   'getTemplTypeList' | 'getTemplList' | 'getMaterialTypeList' | 'getMaterialList' | 'getSizeList'
@@ -41,15 +41,24 @@ class MaterialPlugin implements IPluginTempl {
   }
   // 获取模板分类
   getTemplTypeList() {
-    return axios.get(`${this.repoSrc}/api/templ-types?pagination[pageSize]=100`).then((res) => {
-      const list = res.data.data.map((item: any) => {
+    return Promise.resolve(
+      TempTypes.map((item: any) => {
         return {
           value: item.id,
           label: item.attributes.name,
         };
-      });
-      return list;
-    });
+      })
+    );
+
+    // return axios.get(`${this.repoSrc}/api/templ-types?pagination[pageSize]=100`).then((res) => {
+    //   const list = res.data.data.map((item: any) => {
+    //     return {
+    //       value: item.id,
+    //       label: item.attributes.name,
+    //     };
+    //   });
+    //   return list;
+    // });
   }
   // 分页获取模板列表
   getTemplList(templType = '', index = 1, searchKeyword = '') {

@@ -69,6 +69,8 @@ import { debounce } from 'lodash-es';
 
 import { useI18n } from 'vue-i18n';
 import { useRouter, useRoute } from 'vue-router';
+
+import template from '@/mocks/templates.json';
 const router = useRouter();
 const route = useRoute();
 const { t } = useI18n();
@@ -90,7 +92,10 @@ const {
   getInfo,
 } = usePageList({
   typeUrl: 'templ-types',
-  listUrl: 'templs',
+  // listUrl: 'templs',
+  listUrl: () => {
+    return template;
+  },
   searchTypeKey: 'templ_type',
   searchWordKey: 'name',
   pageSize: 10,

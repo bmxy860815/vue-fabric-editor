@@ -9,15 +9,29 @@
 const repoSrc = import.meta.env.APP_APIHOST;
 import axios from 'axios';
 import qs from 'qs';
+import templateTypes from '@/mocks/templateTypes.json';
 
+import templateDetails from '@/mocks/templatesDetail.json';
 // 分类API
 const typeApi = (url) => axios.get(`${repoSrc}/api/${url}?pagination[pageSize]=200`);
 
 // 分页API
 const pageApi = (url, queryParams) => axios.get(`${repoSrc}/api/${url}?${queryParams}`);
 
-const getInfo = (id) => axios.get(`${repoSrc}/api/templs/${id}`);
-
+// const getInfo = (id) => axios.get(`${repoSrc}/api/templs/${id}`);
+const getInfo = (id) => {
+  // infoRes.data.data.attributes.json;
+  const t = templateDetails.find((item) => item.id === id);
+  return Promise.resolve(
+    {
+      data: {
+        data: {
+          ...t,
+        },
+      },
+    } || {}
+  );
+};
 function getQueryParams(option, filters) {
   filters.forEach((item) => {
     const { key, value, type } = item;
@@ -66,12 +80,14 @@ function getPageParams(
 
 function getMaterialInfoUrl(info) {
   const imgUrl = info?.data?.attributes?.url || '';
-  return repoSrc + imgUrl;
+  return '.' + imgUrl;
+  // return repoSrc + imgUrl;
 }
 
 function getMaterialPreviewUrl(info) {
   const imgUrl = info?.data?.attributes?.formats?.small?.url || info?.data?.attributes?.url || '';
-  return repoSrc + imgUrl;
+  return '.' + info?.data?.attributes?.url;
+  // return repoSrc + imgUrl;
 }
 
 export default function usePageList({
@@ -113,8 +129,8 @@ export default function usePageList({
   const getTypeList = async () => {
     pageLoading.value = true;
     try {
-      const res = await typeApi(typeUrl);
-      const list = res.data.data.map((item) => {
+      // const res = await typeApi(typeUrl);
+      const list = templateTypes.map((item) => {
         return {
           value: item.id,
           label: item.attributes.name,
@@ -145,6 +161,20 @@ export default function usePageList({
         pageSize,
         fields
       );
+      if (typeof listUrl === 'function') {
+        pageData.value = listUrl().map((item) => {
+          return {
+            id: item.id,
+            name: item.attributes.name,
+            desc: item.attributes.desc,
+            json: item.attributes?.json,
+            src: getMaterialInfoUrl(item.attributes.img),
+            previewSrc: getMaterialPreviewUrl(item.attributes.img),
+          };
+        });
+        pageLoading.value = false;
+        return;
+      }
       const res = await pageApi(listUrl, params);
       const list = res.data.data.map((item) => {
         return {
